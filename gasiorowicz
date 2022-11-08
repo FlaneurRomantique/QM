@@ -1,0 +1,262 @@
+\documentclass[11pt]{book}
+%Gummi|065|=)
+\usepackage{braket}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage[french]{babel}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{\textbf{Quantum mechanics\\Stephen Gasiorowicz\\Second Edition}}
+\author{Hugo Laviec}
+\date{}
+
+\doublespacing
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\chapter{Emergence of QM}
+
+
+
+\chapter{Wave particle duality, probability, Schrödinger equation}
+
+
+
+\chapter{Eigenvalues, eigenfunctions}
+
+\section{Problem 1}
+
+The operator will be generally noted $O_i$, the linear operator are noted $L$.\\
+An operator is called \emph{linear} if $L[f_1(x)+f_2(x)]=Lf_1(x)+Lf_2(x)$ and $Lcf(x)=cLf(x)$ with $c$ any arbitrary complex number.\\\\
+We can rewrite this in one condition $L[af_1(x)+bf_2(x)]=aLf_1(x)+bLf_2(x)$.\\
+
+a) $O_1\psi(x)=x^3\psi(x)$\\
+$O_1[\psi(x)+\phi(x)]=x^3[\psi(x)+\phi(x)]=x^3\psi(x)+x^3\phi(x)=O_1\psi(x)+O_1\phi(x)$\\\\
+$O_1$ is linear.\\
+
+b) $O_2\psi(x)=x\frac{d}{dx}\psi(x)$\\
+$O_2[\psi(x)+\phi(x)]=x\frac{d}{dx}[\psi(x)+\phi(x)]=x\frac{d}{dx}\psi(x)+x\frac{d}{dx}\phi(x)=O_2\psi(x)+O_2\phi(x)$\\\\
+$O_2$ is linear\\
+
+c) $O_3\psi(x)=\lambda \psi^*(x)$\\
+$O_3[\psi(x)+\phi(x)]=\lambda[\psi(x)+\phi(x)]^*=\lambda\psi^*(x)+\lambda\phi^*(x)$\\
+$O_3$ is linear\\
+
+d) $O_4\psi(x)=e^{\psi(x)}$\\
+$O_4[\psi(x)+\phi(x)]=e^{\psi(x)+\phi(x)}\ne e^{\psi(x)}+e^{\phi(x)}$\\
+$O_4$ is non-linear\\
+
+e) $O_5\psi(x)=\frac{d\psi(x)}{dx}+a$\\
+$O_5[\psi(x)+\phi(x)]=\frac{d[\psi(x)+\phi(x)]}{dx}+a \ne \frac{d\psi(x)}{dx} + \frac{d\phi(x)}{dx} + 2a$\\
+$O_5$ is non-linear\\
+
+f) $O_6\psi(x)=\int^{\infty}_{-\infty}dx'(\psi(x')x')$\\
+$O_6[\psi(x)+\phi(x)]=\int^{\infty}_{-\infty}dx'[(\psi(x')+\phi(x'))x']=\int^{\infty}_{-\infty}dx'(\psi(x')x')+\int^{\infty}_{-\infty}dx'(\phi(x')x')$\\
+
+$O_6$ is linear.
+
+\section{Problem 2}
+
+$O_6\psi(x)=\lambda\psi(x)=\int^{\infty}_{-\infty}dx'(\psi(x')x')$\\
+$\lambda\frac{d}{dx}\psi(x)=x\psi(x)$\\
+By separation of variables, $\frac{d\psi(x)}{\psi(x)}=\frac{xdx}{\lambda}$\\
+$\psi(x)=\psi(0)e^{\lambda x^2/2}$\\
+We note that $\lambda <0$ for $\psi(x) \in \mathcal{L}^2$ i.e. $\int dx |\psi(x)|^2<\infty$.
+
+\section{Problem 3}
+
+a) $[O_2,O_6]\psi(x)=x(d/dx)\int dx'(x'\psi(x'))-\int dx'(x'^2 (d/dx')\psi(x'))$\\
+$[O_2,O_6]\psi(x)=x^2\psi(x)+2\int dx' x'\psi(x')-\int dx' (d/dx')(x'^2\psi(x'))=2\int dx' x'\psi(x')$\\
+$[O_2,O_6]\psi(x)=2O_6\psi(x)$\\
+
+b) $[O_1,O_2]\psi(x)=x^3x(d/dx)\psi(x)-x(d/dx)(x^3\psi(x))=x^4\psi'(x)-x(3x^2\psi(x)+x^3\psi'(x))=-3x^3\psi(x)$\\
+$[O_1,O_2]=-3x^3=-3O_1$
+
+\section{Problem 4}
+
+$u_n(x)=\sqrt{\frac{2}{a}}\sin{\frac{n\pi x}{a}}$, eigenfunctions for a particle in a "1D box".\\
+$(\Delta x)^2 = \braket{x^2}=\int_0^a dx u_n^*(x)x^2u_n(x)=\frac{2}{a}\int_0^a x^2\sin^2{(\frac{n\pi x}{a})}dx$\\
+Using integration by parts,\\
+$\braket{x^2}=\frac{a^2}{3}-\frac{a^2}{2\pi^2n^2}$\\
+We recall the result $\braket{p^2}=\frac{\hbar^2n^2\pi^2}{a^2}$ such that for big $n$, $\Delta x \Delta p = \frac{a\hbar n \pi}{\sqrt{3}a}$ which decreases as $n$ increases.
+
+
+\section{Problem 5}
+
+We need to find the eigenfunctions for this potential. The limits conditions are $\psi(-a)=\psi(a)=0$\\
+Asin(ka)+Bcos(ka)=-Asin(ka)+Bcos(ka)=0\\
+2Bcos(ka)=0 $\rightarrow k =(2n-1)\frac{\pi}{2a}$\\
+We deduce that $u_1(x)=\alpha \cos(\frac{\pi x}{2a})$, we can find $\alpha$ by $1=\alpha^2\int_{-a}^a u_1^2(x)dx$. We find $\alpha^2=1/a$\\
+
+First excited state $u_1(x)=\sqrt{\frac{1}{a}}\cos{(\frac{\pi x}{2a})}$, $E_1=\frac{\pi^2\hbar^2}{2ma^2}$\\
+Probabiliy to find the particule in the new fundamental state, \\
+$c_1=\int_{-b}^bu_{1,b}^*(x)u_{1,a}(x)dx=\frac{1}{\sqrt{ab}}\int_{-a}^a \cos(\frac{\pi x}{2b})\cos(\frac{\pi x}{2a})dx$, since $u_{1,a}(x) = 0 $ if $|x|>a.$\\
+The probability is given by $P_1=|c_1|^2$\\
+
+Probability to find it in the first excited state,\\
+$c_2=\int_{-b}^bu_{2,b}^*(x)u_{1,a}(x)dx=\frac{1}{\sqrt{ab}}\int_{-a}^a \cos(\frac{3\pi x}{2b})\cos(\frac{\pi x}{2a})dx$
+
+
+\section{Problem 6}
+
+Wavefunction in a 1D domain 
+\begin{align*}
+\psi(x)&=\sqrt{\frac{2}{a}} \text{ , } -a/2<x<0\\
+&=0 \text{ , } 0<x<a/2
+\end{align*}
+
+We suppose that at $t=t_0$ the particle is localized in the left part of the domain. We can develop the wave function $\psi(x,t)$ on the basis formed by the eigenfunctions $u_n(x)$ in the following way 
+\begin{equation}
+\psi(x,t)=\sum_nc_nu_n(x)e^{-iE_nt/\hbar}
+\end{equation}
+
+where the coefficients $c_n$ are given by $c_n=\int u_n^*(x)\psi(x,t_0)dx$ such that the probability of measuring an energy $E_n$ is given by $P_n=|c_n|^2$.\\
+
+a) Since the wave function $\psi(x)$ given in the text isn't an eigenfunction, the state associated isn't stationnary and thus will change over time.\\
+
+b) To find the probability $P_0$ to mesure the ground state of energy $E_0$, we need to find the coefficients $c_n$.\\
+
+It is known that the $c_n$ can be found using the orthogonality of the eigenstates 
+
+\begin{equation}
+c_n=\int \psi(x)u_n^*(x)dx
+\end{equation}
+
+We know the eigenstates associated to a particle confined in a 1D box of length a : $u_n(x)=\sqrt{\frac{2}{a}}\sin \frac{n\pi x}{a}$ for $n$ even and $u_n(x)=\sqrt{\frac{2}{a}}\cos \frac{n\pi x}{a}$ for $n$ odd. This result comes from the fact we take the origin at the middle of the box to have walls on $x=\pm a/2$.
+
+\begin{equation}
+c_n=\frac{2}{a}\int_{-a/2}^0\sin \frac{n\pi x}{a} dx=\bigg[-\frac{2}{n\pi} \cos \frac{n\pi x}{a}\bigg]_{-a/2}^0=-\frac{2}{n\pi}+\frac{2}{n\pi}\cos \frac{n\pi}{2}
+\end{equation}
+
+We can substitute $\cos \frac{n\pi}{2}$ by (-1)$^{n/2}$ and obtain 
+
+\begin{equation}
+c_n=[-1+(-1)^{n/2}]\frac{2}{n\pi} \textrm{ ,for $n$ even}
+\end{equation}
+
+The same reasoning leads to 
+
+\begin{equation}
+c_n=(-1)^{\frac{n-1}{n}}\frac{2}{n\pi} \textrm{ ,for $n$ odd}
+\end{equation}
+
+The probability to find the particle the first excited state $n=1$ is $|c_1|^2=\frac{4}{\pi^2}$.
+
+\section{Problem 3.7}
+
+The eigenfunctions are given under the well-known form 
+
+\begin{equation}
+u_n(x)=\sqrt{\frac{2}{a}}\sin \frac{n\pi x}{a}
+\end{equation}
+
+We suppose a particle having an initial normalized wave function of the form 
+
+\begin{equation}
+\psi(x,0)=A\bigg(\sin\frac{\pi x}{a}\bigg)^5
+\end{equation}
+
+a) Since $psi(x,0)$ is not an eigenstate, it's not stationnary so that the wave function at $t$ will differ 
+
+\begin{equation}
+\psi(x,t)=\sum_n c_nu_n(x)e^{-iE_nt/\hbar}
+\end{equation}
+
+We can therefore express $\psi(x,0)$ as a linear combination of the $u_n(x)$ such that 
+
+\begin{equation}
+\psi(x,0)=\sum_n c_n u_n(x)=A\bigg(\sin\frac{\pi x}{a}\bigg)^5
+\end{equation}
+
+Using $\theta \equiv \pi x/a$, we can develop the sine using the Moivre's formula. The Newton's binome gives us 
+
+\begin{equation}
+(\sin \theta)^5=\frac{1}{32i}(e^{5i\theta}-5e^{3i\theta}+10e^{i\theta}-10e^{-i\theta}+5e^{-3i\theta}-e^{-5i\theta})
+\end{equation}
+
+By regrouping the terms in pairs, we obtain
+
+\begin{equation}
+(\sin \theta)^5 = \frac{1}{16}(\sin 5\theta - 5\sin 3\theta +10 \sin \theta)=\frac{1}{16}\sqrt{\frac{a}{2}}(u_5(x)-5u_3(x)+10u_1(x))
+\end{equation}
+
+We can finally write 
+
+\begin{equation}
+\psi(x,0)=\frac{A}{16}\sqrt{\frac{a}{2}}[u_5(x)-5u_3(x)+10u_1(x)]
+\end{equation}
+
+We know that the stationnary state evolve with a phase modification 
+
+\begin{equation}
+\psi_n(t)=e^{-iE_nt/\hbar}\psi_n(t=0)
+\end{equation}
+
+We now can write the final form of $\psi(x,t)$ as 
+
+\begin{equation}
+\psi(x,t)=\frac{A}{16}\sqrt{\frac{a}{2}}\bigg[u_5(x)e^{-iE_5t/\hbar}-5u_3(x)e^{-iE_3t/\hbar}+10u_1(x)e^{-iE_1t/\hbar}\bigg]
+\end{equation}
+
+To find $A$, we use the fact that $\psi(x,0)$ is normalized and $\int_0^a |\psi(x,0)|^2dx=1$. Since the eigenfunctions are normalized and orthgonals, we have 
+
+\begin{equation}
+\int_0^a|\psi(x,0)|^2dx=1=\frac{A^2}{16} \bigg \{[\sin^2(\frac{5\pi x}{a})-25\sin^2(\frac{3\pi x}{a})-100\sin^2(\frac{\pi x}{a}) \bigg\}
+\end{equation}
+
+After transforming the $sin^2(x)$, the integral gives 
+
+\begin{equation}
+1=\frac{A^2a63}{256} \rightarrow A^2 =\frac{256}{63a}
+\end{equation}
+
+To get the probability to mesure $E_3$, we can perform $|\braket{u_3|\psi}|^2=|\int \psi(x,t) u_3^*(x)dx|^2$
+
+We obtain a probability $P(E_3)=25/126$.
+
+%Chapitre opérateurs
+\chapter{Operator methods in quantum mechanics}
+
+\section{Problem 1}
+
+Prove that 
+\begin{equation}
+Au_n=\sqrt{n}u_{n-1}
+\end{equation}
+Using induction, we suppose that it's true for some $n$ and we try to prove it for $n+1$.\\
+For $n=1$, 
+\begin{equation}
+Au_1=u_0
+\end{equation} 
+
+Using equation (7-26) from the book $u_1=A^{\dagger}u_0$ and the commutator $[A,A^{\dagger}]=1$.\\
+We suppose relation (4.1) true, and we want to $Au_{n+1}=\sqrt{n+1}u_n$.\\
+Equation (7-26) tells us that $u_n=\frac{1}{\sqrt n}A^{\dagger}u_{n-1}$ since $[A,(A^{\dagger})^n]=nA^{\dagger}$.\\
+So $Au_{n+1}=\frac{1}{\sqrt{n+1}}AA^{\dagger}u_n$, we can write $AA^{\dagger}=[A,A^{\dagger}]+A^{\dagger}A$.
+\begin{align*}
+Au_{n+1}&=\frac{1}{\sqrt{n+1}}([A,A^{\dagger}]+A^{\dagger}A)u_n\\
+&=\frac{1}{\sqrt{n+1}}(u_n+A^{\dagger}\sqrt n u_{n-1})\\
+&=\frac{1}{\sqrt{n+1}}(u_n+nu_n)=\sqrt{n+1}u_n
+\end{align*}
+QED.
+
+\section{Problem 2}
+
+Let's consider a polynomial of maximal degree $n$ in terms of $A^{\dagger}$ noted $f(A^{\dagger})$.\\
+We know from the previous exercise that $A(A^{\dagger})^n=(A^{\dagger})^{n-1}$, we also know that $\frac{d}{dA^{\dagger}}f(A^{\dagger})=g(A^{\dagger})$ where $g(A^{\dagger})$ is a polynomial of degree $n-1$.\\
+
+An other approach is to use (7-26), $\sqrt n u_n=(A^{\dagger})^nu_0$,\\ so $A(A^{\dagger})^nu_0=\sqrt n Au_n=nu_{n-1}$\\
+$A(A^{\dagger})^{n-1}u_0=\sqrt{n(n-1)} Au_{n-1}=\sqrt{n(n-1)}u_{n-2}$\\
+The action of the operator $A$ decreases the monome of highest degree, just like the derivative with respect to $A^{\dagger}$.\\
+\begin{equation}
+f(A^{\dagger})u_0=u_0\sum_{l=1}^nc_l(A^{\dagger})^l
+\end{equation}
+
+\end{document}
